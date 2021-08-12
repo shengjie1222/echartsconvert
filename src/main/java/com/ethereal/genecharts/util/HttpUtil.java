@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -16,6 +17,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+
 /**
  * @author Administrator
  * @Description
@@ -32,6 +34,12 @@ public class HttpUtil {
 
         // 创建post方式请求对象
         HttpPost httpPost = new HttpPost(url);
+        // 设置超时时间
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(5000)
+                .setConnectionRequestTimeout(1000)
+                .setSocketTimeout(5000).build();
+        httpPost.setConfig(requestConfig);
 
         // 生成请求参数
         List<NameValuePair> nameValuePairs = new ArrayList<>();

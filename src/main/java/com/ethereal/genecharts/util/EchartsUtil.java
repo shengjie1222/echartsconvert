@@ -25,8 +25,10 @@ public class EchartsUtil {
         option = option.replaceAll("\\s+", "").replaceAll("\"", "'");
 
         // 将option字符串作为参数发送给echartsConvert服务器
-        Map<String, String> params = new HashMap<>();
+        Map<String, String> params = new HashMap<>(2);
         params.put("opt", option);
+        params.put("width", "1000");
+        params.put("height", "600");
         String response = HttpUtil.post(url, params, "utf-8");
 
         // 解析echartsConvert响应

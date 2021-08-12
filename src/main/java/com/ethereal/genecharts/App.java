@@ -32,8 +32,8 @@ public class App {
         datas.put("title", title);
 
         // 生成option字符串
-        String option = FreemarkerUtil.generateString("option.ftl", "", datas);
-
+        String option = FreemarkerUtil.generateString("option2.ftl", "", datas);
+        System.out.println(option);
         // 根据option参数
         String base64 = EchartsUtil.generateEchartsBase64(option);
 

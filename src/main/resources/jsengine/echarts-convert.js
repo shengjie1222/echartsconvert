@@ -46,7 +46,7 @@
     function Convert(params) {
         this.params = params || commandParams; // 参数命令
         this.external = {
-            JQUERY3: path + '/script/jquery-3.2.1.min.js',
+            JQUERY3: path + '/script/jquery-3.6.0.min.js',
             ECHARTS3: path + '/script/echarts.min.js',
             ECHARTS_CHINA: path + '/script/china.js'
         }; // 外部js
